@@ -16,7 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function header () {
+function Header () {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -159,4 +159,4 @@ function header () {
     </AppBar>
   );
 }
-export default header;
+export default Header;
