@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 import PersistentDrawer from "./PersistentDrawer.tsx";
 
 // Define pages and settings arrays
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Habari', 'Biashara', 'Michezo', 'Maoni', 'Maisha', 'Video', 'Uchambuzi'];
 
 // Define Header component
 function Header() {
@@ -62,7 +62,7 @@ function Header() {
                         {/* Navigation Menu for smaller screens */}
 
 
-                        <PersistentDrawer/>
+                        <PersistentDrawer pages = {pages}/>
 
 
                         {/* Logo for smaller screens */}
