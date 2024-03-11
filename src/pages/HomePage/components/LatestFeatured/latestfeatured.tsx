@@ -13,11 +13,11 @@ const LatestFeatured: React.FC = () => {
     };
 
     return (
-        <div >
+        <div className='border-4'>
             <div className="bg-white text-sm font-medium text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 md:container md:mx-auto">
-                <div className={"w-full"}>
+                <div className='w-full'>
                     <ul className="flex flex-wrap -mb-px">
-                        <li className="me-2 w-[49%]">
+                        <li className="me-2 w-[48%]">
                             <a
                                 href="#"
                                 onClick={(event: MouseEvent<HTMLAnchorElement>) => handleTabClick('FEATURED', event)}
@@ -27,7 +27,7 @@ const LatestFeatured: React.FC = () => {
                                 FEATURED
                             </a>
                         </li>
-                        <li className="me-2 w-[49%]">
+                        <li className="me-2 w-[48%]">
                             <a
                                 href="#"
                                 onClick={(event: MouseEvent<HTMLAnchorElement>) => handleTabClick('LATEST NEWS', event)}
@@ -49,17 +49,14 @@ const LatestFeatured: React.FC = () => {
                                     className="w-48 h-48 object-cover m-2 "
                                     src="https://fastly.picsum.photos/id/259/200/200.jpg?hmac=F9blvALDAoKm-lOnYw9g0q_RC51-6K1Msawm_dQzhIs"
                                     alt="FEATURED" />
-                                <p className={"font-bold"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Architecto,
-                                    porro.</p>
+                                <p className={"font-bold"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, porro.</p>
                             </div>
                             <div className={"flex gap-4 items-center"}>
                                 <img
                                     className="w-48 h-48 object-cover m-2 "
                                     src="https://fastly.picsum.photos/id/127/200/200.jpg?hmac=WYBTvlVHFeXjWOUvDgKRt6YUtVxGF2ZdUGO9aoYimdg"
                                     alt="FEATURED" />
-                                <p className={"font-bold"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Obcaecati, optio?</p>
+                                <p className={"font-bold"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, optio?</p>
                             </div>
                             <div className={"flex gap-4 items-center"}>
                                 <img
