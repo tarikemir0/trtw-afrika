@@ -1,38 +1,42 @@
 // Import React and necessary components from Material-UI library
-import React, {useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import Menu from '@mui/joy/Menu';
+import MenuButton from '@mui/joy/MenuButton';
+import MenuItem from '@mui/joy/MenuItem';
+import Dropdown from '@mui/joy/Dropdown';
 import Tooltip from '@mui/material/Tooltip';
 import SearchBar from './SearchBar';
 import PersistentDrawer from "./PersistentDrawer.tsx";
+import {useTranslation} from "react-i18next";
+import {useState} from "react";
+
 
 // Define pages and settings arrays
 const pages = ['Habari', 'Biashara', 'Michezo', 'Maoni', 'Maisha', 'Video', 'Uchambuzi'];
 
 // Define Header component
 function Header() {
-    // State variables to handle anchor elements for navigation and Searchbar menu
-    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-    const [anchorElSearchbar, setAnchorElSearchbar] = useState<null | HTMLElement>(null);
 
-    // Function to handle opening navigation menu
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
-    };
+    const {t,i18n} = useTranslation()
+
+    const clickHandle = async lang =>{
+        await i18n.changeLanguage(lang)
+    }
+
+    // State variables to handle anchor elements for navigation and Searchbar menu
+    const [, setAnchorElNav] = useState<null | HTMLElement>(null);
 
     // Function to handle closing navigation menu
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-    // Function to handle closing Searchbar menu
-    const handleCloseSearchbar = () => {
-        setAnchorElSearchbar(null);
-    };
+
 
     // Return JSX for Header component
     return (
@@ -105,6 +109,24 @@ function Header() {
                             </Tooltip>
 
                         </Box>
+                        {/*<Dropdown>*/}
+                        {/*    <MenuButton*/}
+                        {/*        variant="plain"*/}
+                        {/*        size="sm">*/}
+                        {/*        Swahili*/}
+                        {/*    </MenuButton>*/}
+                        {/*    <Menu*/}
+                        {/*        variant="soft"*/}
+                        {/*        size="sm">*/}
+                        {/*        <MenuItem>English</MenuItem>*/}
+                        {/*        <MenuItem>Français</MenuItem>*/}
+                        {/*        <MenuItem>Hausa</MenuItem>*/}
+                        {/*    </Menu>*/}
+                        {/*</Dropdown>*/}
+                        <nav>
+                            <button onClick={() => clickHandle('sw')}>Swahili</button>
+                            <button onClick={() => clickHandle('en')}>English</button>
+                        </nav>
                     </Toolbar>
                 </Container>
             </AppBar>
