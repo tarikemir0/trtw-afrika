@@ -1,6 +1,7 @@
 // Import React and necessary components from Material-UI library
-import React, {useState} from 'react';
-import {styled, useTheme} from '@mui/material/styles';
+import {useState} from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import {styled} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -10,11 +11,10 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import CloseIcon from '@mui/icons-material/Close';
 
-// Define the width of the drawer
-const drawerWidth = 240;
 
 // Styled component for the header of the drawer
-const DrawerHeader = styled('div')(({theme}) => ({
+// eslint-disable-next-line no-empty-pattern
+const DrawerHeader = styled('div')(({}) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
@@ -22,8 +22,10 @@ const DrawerHeader = styled('div')(({theme}) => ({
 }));
 
 // Define PersistentDrawer component
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 function PersistentDrawer({pages}) {
-    const theme = useTheme();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [open, setOpen] = useState(false); // State variable to manage drawer open/close
     // Function to handle opening the drawer
     const handleDrawerOpen = () => {

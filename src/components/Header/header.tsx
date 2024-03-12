@@ -5,24 +5,21 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Menu from "@mui/joy/Menu";
-import MenuButton from "@mui/joy/MenuButton";
-import MenuItem from "@mui/joy/MenuItem";
-import Dropdown from "@mui/joy/Dropdown";
+import HoverSubMenu from "./HoverSubMenu.tsx";
 import Tooltip from "@mui/material/Tooltip";
 import SearchBar from "./SearchBar";
 import PersistentDrawer from "./PersistentDrawer.tsx";
-import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import {useTranslation} from "react-i18next";
+import {useState} from "react";
 
 // Define pages and settings arrays
-const pages = ["Habari", "Biashara", "Michezo", "Maoni", "Maisha", "Video", "Uchambuzi"];
+const pages = ["news", "business", "sports", "opinions", "life", "video", "insight"];
 
 // Define Header component
 function Header() {
-    const { t, i18n } = useTranslation();
+    const {t, i18n} = useTranslation();
 
-    const clickHandle = async (lang) => {
+    const clickHandle = async (lang: string) => {
         await i18n.changeLanguage(lang);
     };
 
@@ -37,7 +34,7 @@ function Header() {
     // Return JSX for Header component
     return (
         <div>
-            <AppBar position="static" style={{ backgroundColor: "black" }}>
+            <AppBar position="static" style={{backgroundColor: "black"}}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         {/* Logo */}
@@ -48,7 +45,7 @@ function Header() {
                             href="#app-bar-with-responsive-menu"
                             sx={{
                                 mr: 2,
-                                display: { xs: "none", md: "flex" },
+                                display: {xs: "none", md: "flex"},
                                 fontFamily: "monospace",
                                 fontWeight: 700,
                                 letterSpacing: ".3rem",
@@ -56,12 +53,12 @@ function Header() {
                                 textDecoration: "none",
                             }}
                         >
-                            <img src={"/images/logo.svg"} alt="Example" />
+                            <img src={"/images/logo.svg"} alt="Example"/>
                         </Typography>
 
                         {/* Navigation Menu for smaller screens */}
 
-                        <PersistentDrawer pages={pages} />
+                        <PersistentDrawer pages={pages}/>
 
                         {/* Logo for smaller screens */}
                         <Typography
@@ -71,7 +68,7 @@ function Header() {
                             href="#app-bar-with-responsive-menu"
                             sx={{
                                 mr: 2,
-                                display: { xs: "flex", md: "none" },
+                                display: {xs: "flex", md: "none"},
                                 flexGrow: 1,
                                 fontFamily: "monospace",
                                 fontWeight: 700,
@@ -80,42 +77,28 @@ function Header() {
                                 textDecoration: "none",
                             }}
                         >
-                            <img src={"/images/logo.svg"} alt="Example" />
+                            <img src={"/images/logo.svg"} alt="Example"/>
                         </Typography>
 
                         {/* Navigation Buttons for larger screens */}
-                        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                        <Box sx={{flexGrow: 1, display: {xs: "none", md: "flex"}}}>
                             {pages.map((page) => (
-                                <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: "white", display: "block" }}>
-                                    {page}
+                                <Button key={page} onClick={handleCloseNavMenu}
+                                        sx={{my: 2, color: "white", display: "block"}}>
+                                    {t(page)} {/* Translate page names */}
                                 </Button>
                             ))}
                         </Box>
 
                         {/* Search bar */}
-                        <Box sx={{ flexGrow: 0 }}>
+                        <Box sx={{flexGrow: 1, display: {xs: "none", md: "flex"}}}>
                             <Tooltip title="Search">
-                                <SearchBar />
+                                <SearchBar/>
                             </Tooltip>
                         </Box>
-                        {/*<Dropdown>*/}
-                        {/*    <MenuButton*/}
-                        {/*        variant="plain"*/}
-                        {/*        size="sm">*/}
-                        {/*        Swahili*/}
-                        {/*    </MenuButton>*/}
-                        {/*    <Menu*/}
-                        {/*        variant="soft"*/}
-                        {/*        size="sm">*/}
-                        {/*        <MenuItem>English</MenuItem>*/}
-                        {/*        <MenuItem>Français</MenuItem>*/}
-                        {/*        <MenuItem>Hausa</MenuItem>*/}
-                        {/*    </Menu>*/}
-                        {/*</Dropdown>*/}
-                        <nav>
-                            <button onClick={() => clickHandle("sw")}>Swahili</button>
-                            <button onClick={() => clickHandle("en")}>English</button>
-                        </nav>
+                        {/*menu*/}
+                        <HoverSubMenu/>
+
                     </Toolbar>
                 </Container>
             </AppBar>

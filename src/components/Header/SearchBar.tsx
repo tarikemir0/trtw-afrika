@@ -11,6 +11,7 @@ const Search = styled('div')(({ theme }) => ({
     },
     marginLeft: 0,
     width: '100%',
+    height: 32, // Yükseklik ayarı
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(1),
         width: 'auto',
@@ -30,6 +31,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     width: '100%',
+    height: '100%', // Yükseklik ayarı
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
@@ -59,4 +61,4 @@ const SearchBar = () => {
     )
 }
 
-export default SearchBar
+export default SearchBar;

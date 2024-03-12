@@ -1,3 +1,9 @@
 {
-  "news" : "habari"
+  "news": "Habari",
+  "business": "Biashara",
+  "sports": "Michezo",
+  "opinions": "Maoni",
+  "life": "Maisha",
+  "video": "Video",
+  "insight": "Uchambuzi"
 }
